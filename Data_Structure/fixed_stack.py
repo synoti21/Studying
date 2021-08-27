@@ -63,6 +63,6 @@ class FixedStack:
             print("원소가 비어있습니다.")
         else:
             print(self.stk[:self.ptr])
-        
+    
     
 

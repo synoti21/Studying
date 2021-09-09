@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            var ctx = $("#ctx");
+            var count = 0;
+            var ctx_position = 0;
+
+            $("#btn_left").click(function(){
+                if(!ctx.is(":animated") && ctx_position >0){
+                    ctx.animate({marginLeft : "-=50px"},500);
+                    count+=1; ctx_position-=1;
+                    $("#ctx_count").text(count);
+                }
+            })
+
+            $("#btn_right").click(function(){
+                if(!ctx.is(":animated")){
+                    ctx.animate({marginLeft : "+=50px"},500);
+                    count+=1; ctx_position+=1;
+                    $("#ctx_count").text(count);
+                }
+            })
+            $("#btn_top").click(function(){
+                if(!ctx.is(":animated")){
+                    ctx.animate({marginTop : "-=50px"},500);
+                    count+=1;
+                    $("#ctx_count").text(count);
+                }
+            })
+            $("#btn_bottom").click(function(){
+                if(!ctx.is(":animated")){
+                    ctx.animate({marginTop : "+=50px"},500);
+                    count+=1;
+                    $("#ctx_count").text(count);
+                }
+            })
+            
+
+            $(document).on("keydown",keyEventFnc);
+            function keyEventFnc(e){
+                switch(e.keyCode){
+                    case 37:
+                        if(!ctx.is(":animated")){ctx.animate({marginLeft : "-=50px"},500);
+                        count+=1;$("#ctx_count").text(count);}
+                        break;
+                    case 38:
+                        if(!ctx.is(":animated")) {ctx.animate({marginTop : "-=50px"},500);
+                        count+=1;$("#ctx_count").text(count);}
+                        break;
+                    case 39:
+                        if(!ctx.is(":animated")){ctx.animate({marginLeft : "+=50px"},500);
+                        count+=1;$("#ctx_count").text(count);}
+                        break;
+                    case 40:
+                        if(!ctx.is(":animated")){ctx.animate({marginTop : "+=50px"},500);
+                        count+=1;$("#ctx_count").text(count);}
+                        break;
+                }
+            }
+        })
+    </script>
+    <style type = "text/css">
+    *{margin:0; padding:0;}
+    #ctx{width:50px; height:50px;background:yellow;}
+    #btn_top,
+    #btn_bottom{
+        margin-left : 15px;
+    }
+    </style>
+</head>
+<body>
+    <button id="btn_top">위쪽</button><br>
+    <span>
+        <button id="btn_left">왼쪽</button>
+        <button id="btn_right">오른쪽</button>
+    </span><br>
+    <button id="btn_bottom">아래쪽</button>
+    <p id="ctx_count">0</p>
+    <p id="ctx">내용</p>
+    
+</body>
+</html>

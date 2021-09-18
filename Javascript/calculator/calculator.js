@@ -12,7 +12,7 @@ let lastOperation = '';
 
 numberButtons.forEach(number => { 
     number.addEventListener('click',(e) =>{
-        if(!(e.target.innerText =='0' && inputNum == '')){
+        if(!(e.target.innerText =='0' && inputNum == '')){ // prevents adding '0' when no input
             inputNum += e.target.innerText; // calls text in target's button. e.g) button '1' => calls '1'
             displayNum.innerText = inputNum;
             document.getElementById("clear").innerHTML = "C";
@@ -25,6 +25,7 @@ operationButtons.forEach(operation => {
     operation.addEventListener('click',(e) => {
          if(inputNum && savedNum && lastOperation){ //when it already done the operation at least once
              calOperate();
+             lastOperation = e.target.innerText;
          }else{  //first operate
              lastOperation = e.target.innerText;
              if(inputNum) savedNum = inputNum; // if equated before
@@ -44,7 +45,7 @@ function calEquation(){
 
 function calClear(){
     document.getElementById("clear").innerHTML = "AC";
-    if(inputNum || displayNum.innerText != '0'){ //clear recent inputNum data
+    if(inputNum || displayNum.innerText != '0'){ //clear recent inputNum data if there's input data or equated
         displayNum.innerText = '0';
         inputNum = '';
     }else{ //All clear including lastoperation, savedNum, result

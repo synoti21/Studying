@@ -17,7 +17,7 @@
     border-style: solid;
 }
 
-#cal_display{
+.cal_display{
     width : 312px;
     height : 63px;
     text-align: end;
@@ -27,81 +27,42 @@
     border-radius: 10px;
     border-color: rgb(100, 100, 100);
     border-style: solid;
-}
-
-#cal_display > span{
-    margin-right : 8px;
-    padding-top:100px;
-}
-
-
-#cal_button{
-    width : 330px;
-    height: 297px;
     display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 #cal_numButton{
-    width : 255px;
-    height : 297px;
+    width : 330px;
+    height : calc(377.5px - 63px - 22px);
+    display: grid;
+    grid-template: repeat(4,1fr)/repeat(4,1fr);
+    align-items: center;
+    justify-items: center;
 }
 
-#cal_numButton > div:not(:last-child){
-    margin-bottom: 25px;
-    justify-content: center;
-    display: flex;
-}
 
-#cal_numButton > div > button {
+.button {
     width : 50.5px;
     height : 50.5px;
     font-size : 24px;
-    box-shadow: none;
     border: 2px;
     border-style: solid;
     border-color: rgb(100, 100, 100);
     background-color: white;
     border-radius: 100%;
     cursor: pointer;
-    transition: 0.3s;
-
-}
-#cal_numButton > div > button:hover {
-    background-color: lightgray;
-}
-
-#cal_numButton > div > button:nth-child(2){
-    margin-left:25.5px;
-    margin-right:25.5px;
-}
-
-#cal_numButton > div:last-child{
     justify-content: center;
+    text-align: center;
+    align-items: center;
     display: flex;
-    margin-top: 30x;
-}
-
-#cal_numerator{
-    width : 75px;
-    height: 296px;
-}
-
-#cal_numerator > button{
-    margin-bottom : 6px;
-    flex-direction: row-reverse;
-    width : 50.5px;
-    height: 50.5px;
-    border-radius: 100%;
-    border-style: solid;
-    border-color: rgb(100, 100, 100);
-    cursor: pointer;
-    background-color: white;
     transition: 0.3s;
-    justify-content: center;
-    margin-left : calc((75px - 50.5px)/2);
 }
 
-
-#cal_numerator > button:hover{
+.button:hover {
     background-color: lightgray;
 }
+

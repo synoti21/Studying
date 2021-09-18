@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="calculator.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type = "text/css" href="style.css">
@@ -14,42 +13,32 @@
 <body>
     <div id="container">
         <div id="calculator">
-            <div id="cal_display">
-                <span>3</span>
-            </div>
-            <div id="cal_button">
-                <div id="cal_numButton">                        
-                    <div id="btn_firstLine">
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                    </div>
-                    <div id="btn_secondLine">
-                        <button>4</button>
-                        <button>5</button>
-                        <button>6</button>
-                    </div>
-                    <div id = "btn_thirdLine">
-                        <button>7</button>
-                        <button>8</button>
-                        <button>9</button>
-                    </div>
-                    <div id="btn_lastLine">
-                        <button>10</button>
-                    </div>
-                </div>
-                <div id="cal_numerator">
-                    <button>+</button>
-                    <button>-</button>
-                    <button>*</button>
-                    <button>/</button>
-                    <button>=</button>
-
-
-                </div>
+            <div class="cal_display">
+                <div class="display1">0</div>
                 
+            </div>
+            <div id="cal_numButton">                        
+                <div class = "button number">1</div>
+                <div class = "button number">2</div>
+                <div class = "button number">3</div>
+                <div class = "button operation">+</div>
+                <div class = "button number">4</div>
+                <div class = "button number">5</div>
+                <div class = "button number">6</div>
+                <div class = "button operation">-</div>
+                <div class = "button number">7</div>
+                <div class = "button number">8</div>
+                <div class = "button number">9</div>
+                <div class = "button operation">*</div>
+                <div class= "button clear" id = "clear" onclick = "calClear()">AC</div>
+                <div class = "button number ">0</div>
+                <div class = "button operation">/</div>
+                <div class = "button equal" onclick="calEquation()">=</div>
             </div>
         </div>
     </div>
+    <script src="calculator.js"></script> <!-- allocating javascript in <head> that alters the element of html (e.g. querySelector) 
+    won't work as HTML reads from top to button. Thus, javascript won't read any of html elememt that hasn't loaded yet.-->
+
 </body>
 </html>

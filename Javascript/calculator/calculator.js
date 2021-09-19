@@ -12,7 +12,7 @@ let lastOperation = '';
 
 numberButtons.forEach(number => { 
     number.addEventListener('click',(e) =>{
-        if(!(e.target.innerText =='0' && displayNum.innerText == '0')){ // prevents adding '0' when no input
+        if(!(e.target.innerText =='0' && inputNum == '0')){ // prevents adding '0' when no input
             inputNum += e.target.innerText; // calls text in target's button. e.g) button '1' => calls '1'
             displayNum.innerText = inputNum;
             document.getElementById("clear").innerHTML = "C"; //changes 'clear all' to 'clear'
@@ -25,6 +25,9 @@ operationButtons.forEach(operation => {
     operation.addEventListener('click',(e) => {
          if(inputNum && savedNum && lastOperation){ //when it already done the operation at least once
              calOperate();
+             if(savedNum == Infinity || displayNum.innerText == 'NaN'){
+                 displayNum.innerText = "Not a Number";
+             }
              lastOperation = e.target.innerText; // gets new operator for chained operation
          }else{  //initial operation
              lastOperation = e.target.innerText;
@@ -39,6 +42,9 @@ function calEquation(){
         calOperate();
         result = savedNum;
         displayNum.innerText = result;
+        if(result == Infinity || displayNum.innerText == 'NaN'){
+            displayNum.innerText = "Not a Number";
+        }
         inputNum, lastOperation = '';
     }
 }

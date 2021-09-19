@@ -15,7 +15,7 @@ numberButtons.forEach(number => {
         if(!(e.target.innerText =='0' && inputNum == '')){ // prevents adding '0' when no input
             inputNum += e.target.innerText; // calls text in target's button. e.g) button '1' => calls '1'
             displayNum.innerText = inputNum;
-            document.getElementById("clear").innerHTML = "C";
+            document.getElementById("clear").innerHTML = "C"; //changes 'clear all' to 'clear'
         }
        
     })
@@ -25,10 +25,10 @@ operationButtons.forEach(operation => {
     operation.addEventListener('click',(e) => {
          if(inputNum && savedNum && lastOperation){ //when it already done the operation at least once
              calOperate();
-             lastOperation = e.target.innerText;
+             lastOperation = e.target.innerText; // gets new operator when doing chained operation
          }else{  //first operate
              lastOperation = e.target.innerText;
-             if(inputNum) savedNum = inputNum; // if equated before
+             if(inputNum) savedNum = inputNum; // if equated before and starts new operation (not chained)
              inputNum = ''; // make calculator ready to get new value
          }
     })

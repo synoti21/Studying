@@ -25,7 +25,7 @@ operationButtons.forEach(operation => {
     operation.addEventListener('click',(e) => {
          if(inputNum && savedNum && lastOperation){ //when it already done the operation at least once
              calOperate();
-             if(savedNum == Infinity || displayNum.innerText == 'NaN'){
+             if(!isNumber(savedNum)){
                  displayNum.innerText = "Not a Number";
              }
              lastOperation = e.target.innerText; // gets new operator for chained operation
@@ -42,7 +42,7 @@ function calEquation(){
         calOperate();
         result = savedNum;
         displayNum.innerText = result;
-        if(result == Infinity || displayNum.innerText == 'NaN'){
+        if(!isNumber(result)){
             displayNum.innerText = "Not a Number";
         }
         inputNum, lastOperation = '';
@@ -80,6 +80,10 @@ function calOperate(){
         displayNum.innerText = savedNum;
         inputNum ='';
     }
+}
+
+function isNumber(n){
+    return typeof n == 'number' && !isNaN(n) && isFinite(n);
 }
 
 

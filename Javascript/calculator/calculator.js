@@ -82,7 +82,7 @@ function calOperate(){
     }
 }
 
-function isNumber(n){
+function isNumber(n){ //check if result is valid number
     return typeof n == 'number' && !isNaN(n) && isFinite(n);
 }
 
